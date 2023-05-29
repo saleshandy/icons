@@ -1,0 +1,26 @@
+name: Create Build
+
+on:
+  pull_request:
+    branches:
+      - main
+      - release-v*
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Use Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '16.x'
+
+      - name: Install deps ⏬
+        run: npm ci
+
+      - name: Create Build 🔧
+        run: npm run build
