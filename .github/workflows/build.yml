@@ -8,13 +8,14 @@ on:
 
 jobs:
   check:
+    name: Create build 🔧
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
+      - name: Checkout repo ✔️
+        uses: actions/checkout@v3
 
-      - name: Use Node
+      - name: Use Node ⚡
         uses: actions/setup-node@v1
         with:
           node-version: '16.x'
