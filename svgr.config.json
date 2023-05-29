@@ -1,0 +1,15 @@
+{
+  "filenameCase": "pascal",
+  "typescript": true,
+  "ref": true,
+  "icon": true,
+  "outDir": "./src",
+  "replaceAttrValues": {
+    "#1F2937": "currentColor"
+  },
+  "svgProps": {
+    "width": "{props.width ?? 16}",
+    "height": "{props.height ?? 16}",
+    "role": "img"
+  }
+}
