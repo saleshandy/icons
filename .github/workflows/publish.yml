@@ -1,8 +1,8 @@
-name: 🚀 Publish
+name: Publish
 
 on:
   workflow_run:
-    workflows: [⬆️ Bump Version]
+    workflows: [Bump Version]
     types:
       - completed
 
@@ -10,11 +10,11 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo 🔧
+      - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Use Node ⚡
-        uses: actions/setup-node@v3
+      - name: Use Node
+        uses: actions/setup-node@v2
         with:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
