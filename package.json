@@ -1,6 +1,6 @@
 {
   "name": "@saleshandy/icons",
-  "version": "1.17.3",
+  "version": "1.17.4",
   "description": "Saleshandy Icons Library",
   "main": "index.js",
   "type": "module",
