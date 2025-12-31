@@ -6,26 +6,32 @@ on:
     types:
       - completed
 
+permissions:
+  contents: read
+  id-token: write   # REQUIRED for npm Trusted Publishing (OIDC)
+
 jobs:
   publish:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repo 🔧
-        uses: actions/checkout@v3
 
-      - name: Use Node ⚡
-        uses: actions/setup-node@v3
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: '16.x'
+          node-version: '20'
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Install deps ⏬
+      - name: Upgrade npm
+        run: npm install -g npm@latest
+
+      - name: Install dependencies
         run: npm ci
 
-      - name: Create Build 🔧
-        run: npm run build
+      - name: Build package
+        run: npm run build --if-present
 
-      - name: Publish package on NPM 📦
+      - name: Publish package to npm
         run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
