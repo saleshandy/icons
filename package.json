@@ -2,10 +2,25 @@
   "name": "@saleshandy/icons",
   "version": "1.17.17",
   "description": "Saleshandy Icons Library",
-  "main": "index.js",
+  "main": "dist/index.cjs",
   "type": "module",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.esm.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      },
+      "default": "./dist/index.esm.js"
+    },
+    "./dist/*": "./dist/*",
+    "./package.json": "./package.json"
+  },
   "files": [
     "dist"
   ],
@@ -24,7 +39,7 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "react": "^16.13.1"
+    "react": "^16.13.1 || ^17 || ^18 || ^19"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.22.2",
@@ -35,7 +50,7 @@
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-typescript": "^11.1.1",
     "@svgr/cli": "^8.0.1",
-    "@types/react": "^17.0.3",
+    "@types/react": "^18.3.31",
     "rimraf": "^5.0.1",
     "rollup": "^3.23.0",
     "rollup-plugin-dts": "^5.3.0",
