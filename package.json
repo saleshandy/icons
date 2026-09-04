@@ -1,6 +1,6 @@
 {
   "name": "@saleshandy/icons",
-  "version": "1.17.17",
+  "version": "1.17.18",
   "description": "Saleshandy Icons Library",
   "main": "dist/index.cjs",
   "type": "module",
